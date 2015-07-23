@@ -271,6 +271,7 @@ public class MissionMonitor extends javax.swing.JFrame implements PlanManagerLis
         loadEpfB = new javax.swing.JButton();
         drmName = new javax.swing.JLabel();
         loadDcfB = new javax.swing.JButton();
+        KB_Print_Button = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Mission Monitor");
@@ -303,11 +304,11 @@ public class MissionMonitor extends javax.swing.JFrame implements PlanManagerLis
         missionViewersP.setLayout(missionViewersPLayout);
         missionViewersPLayout.setHorizontalGroup(
             missionViewersPLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-            .add(0, 799, Short.MAX_VALUE)
+            .add(0, 800, Short.MAX_VALUE)
         );
         missionViewersPLayout.setVerticalGroup(
             missionViewersPLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-            .add(0, 458, Short.MAX_VALUE)
+            .add(0, 470, Short.MAX_VALUE)
         );
 
         org.jdesktop.layout.GroupLayout placeholderPLayout = new org.jdesktop.layout.GroupLayout(placeholderP);
@@ -346,6 +347,13 @@ public class MissionMonitor extends javax.swing.JFrame implements PlanManagerLis
             }
         });
 
+        KB_Print_Button.setText("Print KnowledgeBase");
+        KB_Print_Button.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                KB_Print_ButtonActionPerformed(evt);
+            }
+        });
+
         org.jdesktop.layout.GroupLayout layout = new org.jdesktop.layout.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -360,9 +368,10 @@ public class MissionMonitor extends javax.swing.JFrame implements PlanManagerLis
                             .add(runB, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .add(loadDrmB, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .add(loadEpfB, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .add(loadDcfB, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .add(loadDcfB, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .add(KB_Print_Button, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                        .add(missionsScrollP, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 814, Short.MAX_VALUE)))
+                        .add(missionsScrollP, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 798, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -372,18 +381,21 @@ public class MissionMonitor extends javax.swing.JFrame implements PlanManagerLis
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
                 .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
                     .add(layout.createSequentialGroup()
-                        .add(missionsScrollP, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 458, Short.MAX_VALUE)
+                        .add(missionsScrollP)
                         .addContainerGap())
                     .add(layout.createSequentialGroup()
                         .add(runB)
-                        .add(5, 5, 5)
-                        .add(planScrollP)
+                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .add(planScrollP, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 338, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
                         .add(loadDrmB)
                         .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
                         .add(loadEpfB)
                         .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                        .add(loadDcfB))))
+                        .add(loadDcfB)
+                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
+                        .add(KB_Print_Button)
+                        .add(4, 4, 4))))
         );
 
         pack();
@@ -420,6 +432,12 @@ public class MissionMonitor extends javax.swing.JFrame implements PlanManagerLis
         }
     }//GEN-LAST:event_loadDcfBActionPerformed
 
+    private void KB_Print_ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_KB_Print_ButtonActionPerformed
+        // TODO add your handling code here:
+        Engine.getInstance().getProxyServer().printKB();
+        
+    }//GEN-LAST:event_KB_Print_ButtonActionPerformed
+
     public static void setUpLogging() {
         LOGGER.info("Log directory is " + LOG_DIRECTORY);
         try {
@@ -451,6 +469,7 @@ public class MissionMonitor extends javax.swing.JFrame implements PlanManagerLis
         });
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton KB_Print_Button;
     private javax.swing.JLabel drmName;
     private javax.swing.JButton loadDcfB;
     private javax.swing.JButton loadDrmB;

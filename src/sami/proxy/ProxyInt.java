@@ -42,5 +42,5 @@ public interface ProxyInt {
 
     public void abortMission(UUID missionId);
 
-    public void completeMission(UUID missionId);
+    public void completeMission(UUID missionId);        
 }
