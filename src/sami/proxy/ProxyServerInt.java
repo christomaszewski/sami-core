@@ -38,6 +38,8 @@ public interface ProxyServerInt {
 
     public int getProxyCounter();
     
+    public int nextHighestBoatNo();
+    
     public void printKB();
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
 }
