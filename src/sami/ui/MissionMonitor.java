@@ -34,6 +34,10 @@ import sami.service.ServiceServer;
 import sami.uilanguage.LocalUiClientServer;
 import sami.uilanguage.UiFrame;
 
+import javax.swing.UIManager;
+import javax.swing.plaf.FontUIResource;
+import java.awt.Font;
+
 /**
  *
  * @author pscerri
@@ -56,6 +60,48 @@ public class MissionMonitor extends javax.swing.JFrame implements PlanManagerLis
      * Creates new form MissionMonitor
      */
     public MissionMonitor() {
+        
+        
+        //////////////////////////////////////////////////////////////////////////////////////////
+        javax.swing.UIManager.put("Button.font",new javax.swing.plaf.FontUIResource("Serif",Font.PLAIN,28));
+        javax.swing.UIManager.put("Menu.font",new javax.swing.plaf.FontUIResource("Serif",Font.PLAIN,28));
+        javax.swing.UIManager.put("MenuBar.font",new javax.swing.plaf.FontUIResource("Serif",Font.PLAIN,28));
+        javax.swing.UIManager.put("MenuItem.font",new javax.swing.plaf.FontUIResource("Serif",Font.PLAIN,28));
+        javax.swing.UIManager.put("Label.font",new javax.swing.plaf.FontUIResource("Serif",Font.PLAIN,28));
+        javax.swing.UIManager.put("Panel.font",new javax.swing.plaf.FontUIResource("Serif",Font.PLAIN,28));
+        javax.swing.UIManager.put("TextField.font",new javax.swing.plaf.FontUIResource("Serif",Font.PLAIN,28));
+        javax.swing.UIManager.put("List.font",new javax.swing.plaf.FontUIResource("Serif",Font.PLAIN,28));
+        javax.swing.UIManager.put("Panel.font",new javax.swing.plaf.FontUIResource("Serif",Font.PLAIN,28));
+        
+        javax.swing.UIManager.put("ToggleButton.font",new javax.swing.plaf.FontUIResource("Serif",Font.PLAIN,28));
+        javax.swing.UIManager.put("RadioButton.font",new javax.swing.plaf.FontUIResource("Serif",Font.PLAIN,28));
+        javax.swing.UIManager.put("CheckBox.font",new javax.swing.plaf.FontUIResource("Serif",Font.PLAIN,28));
+        javax.swing.UIManager.put("ColorChooser.font",new javax.swing.plaf.FontUIResource("Serif",Font.PLAIN,28));
+        javax.swing.UIManager.put("ComboBox.font",new javax.swing.plaf.FontUIResource("Serif",Font.PLAIN,28));
+        javax.swing.UIManager.put("RadioButtonMenuItem.font",new javax.swing.plaf.FontUIResource("Serif",Font.PLAIN,28));
+
+        /*
+        UIManager.put("CheckBoxMenuItem.font", //); 
+        UIManager.put("PopupMenu.font", //);
+        UIManager.put("OptionPane.font", //);
+        UIManager.put("ProgressBar.font", //);
+        UIManager.put("ScrollPane.font", //);
+        UIManager.put("Viewport.font", //);
+        UIManager.put("TabbedPane.font", //);
+        UIManager.put("Table.font", //);
+        UIManager.put("TableHeader.font", //);       
+        UIManager.put("PasswordField.font", //);
+        UIManager.put("TextArea.font", //);
+        UIManager.put("TextPane.font", //);
+        UIManager.put("EditorPane.font", //);
+        UIManager.put("TitledBorder.font", //);
+        UIManager.put("ToolBar.font", //);
+        UIManager.put("ToolTip.font", //);
+        UIManager.put("Tree.font", //);
+        */
+        //////////////////////////////////////////////////////////////////////////////////////////        
+        
+        
         LOGGER.info("java.version: " + System.getProperty("java.version"));
         LOGGER.info("sun.arch.data.model: " + System.getProperty("sun.arch.data.model"));
         LOGGER.info("java.class.path: " + System.getProperty("java.class.path"));
@@ -82,6 +128,7 @@ public class MissionMonitor extends javax.swing.JFrame implements PlanManagerLis
         // Set Engine singleton's services server
         Engine.getInstance().setServiceServer(new ServiceServer());
 
+                      
         for (String className : DomainConfigManager.getInstance().getDomainConfiguration().uiList) {
             try {
                 LOGGER.info("Initializing UI class: " + className);
@@ -115,6 +162,9 @@ public class MissionMonitor extends javax.swing.JFrame implements PlanManagerLis
         Engine.getInstance().addListener(this);
 
         projectUpdated();
+        
+
+        
     }
 
     private void loadFiles() {
